@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>القرآن الكريم</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#1a5d1a">
+  <link rel="apple-touch-icon" href="icon-192.png">
+  <style>
+    @font-face {
+      font-family: 'Uthmanic';
+      src: url('https://cdn.jsdelivr.net/gh/alquran-alkarim/quran-images@master/fonts/uthmanic_hafs_v20/UthmanicHafs1Ver20.ttf') format('truetype');
+      font-display: swap;
+    }
+    body { font-family: 'Uthmanic', 'Amiri', 'Traditional Arabic', serif; }
+  </style>
+</head>
+<body>
+  <div id="app">
+    <header id="main-header">
+      <div class="header-content">
+        <button id="menu-toggle" aria-label="قائمة">&#9776;</button>
+        <h1 id="page-title">القرآن الكريم</h1>
+        <div class="mode-selector">
+          <select id="mushaf-mode">
+            <option value="605">مصحف المدينة (605)</option>
+            <option value="136">مصحف التهجد (136)</option>
+          </select>
+        </div>
+      </div>
+    </header>
+
+    <nav id="sidebar" class="hidden">
+      <div class="nav-section">
+        <h2>فهرس السور</h2>
+        <ul id="surah-list"></ul>
+      </div>
+      <div class="nav-section">
+        <h2>فهرس الأجزاء</h2>
+        <ul id="juz-list"></ul>
+      </div>
+      <div class="nav-section">
+        <h2>الصفحات المحفوظة</h2>
+        <ul id="history-list"></ul>
+      </div>
+      <button id="close-sidebar">إغلاق القائمة</button>
+    </nav>
+
+    <main id="content">
+      <div id="search-container">
+        <input type="text" id="search-input" placeholder="ابحث في القرآن الكريم...">
+        <button id="search-button">بحث</button>
+        <button id="clear-search" class="hidden">مسح</button>
+      </div>
+
+      <div id="quran-page" class="quran-page"></div>
+      
+      <div id="pagination" class="pagination">
+        <button id="prev-page">&laquo; السابق</button>
+        <span id="page-info">الصفحة 1 من 605</span>
+        <button id="next-page">التالي &raquo;</button>
+      </div>
+      
+      <button id="settings-button" class="settings-button">⚙️ الإعدادات</button>
+    </main>
+
+    <div id="overlay" class="hidden"></div>
+    
+    <div id="controls-panel" class="hidden">
+      <h3>الإعدادات</h3>
+      <div class="control-group">
+        <label for="font-size">حجم الخط: <span id="font-size-value">20</span>px</label>
+        <input type="range" id="font-size" min="16" max="36" value="20">
+      </div>
+      <div class="control-group">
+        <label for="line-spacing">تباعد الأسطر: <span id="line-spacing-value">2</span></label>
+        <input type="range" id="line-spacing" min="1" max="4" value="2">
+      </div>
+      <div class="control-group">
+        <label>
+          <input type="checkbox" id="dark-mode"> الوضع الليلي
+        </label>
+      </div>
+      <button id="close-controls">تم</button>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
